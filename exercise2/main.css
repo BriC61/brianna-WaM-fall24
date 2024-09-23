@@ -1,0 +1,116 @@
+/* FONT FAMILIES */
+    /* INKNUT */
+    @font-face {
+        font-family: 'inknut-light';
+        src: url('../assets/inknut-antiqua/InknutAntiqua-Light.woff') format('woff');
+        font-weight: 300;
+    }
+    @font-face {
+        font-family: 'inknut-regular';
+        src: url('../assets/inknut-antiqua/InknutAntiqua-Regular.woff') format('woff');
+        font-weight: 400;
+    }
+    @font-face {
+        font-family: 'inknut-semibold';
+        src: url('../assets/inknut-antiqua/InknutAntiqua-SemiBold.woff') format('woff');
+        font-weight: 600;
+    }
+    @font-face {
+        font-family: 'inknut-bold';
+        src: url('../assets/inknut-antiqua/InknutAntiqua-Bold.woff') format('woff');
+        font-weight: 700;
+    }
+    /* RUBIK
+    /* configure font weight for variable font */
+    /* @font-face {
+        font-family: 'rubik-variable';
+        font-style: normal;
+        font-variation-settings: 'wght' 300 900;
+        src: url('../assets/rubik-variablefont/Rubik-VariableFont_wght.ttf') format('ttf');
+    }
+    @font-face {
+        font-family: 'rubik-variable-italic';
+        font-style: italic;
+        font-variation-settings: 'wght' 300 900;
+        src: url('../assets/rubik-variablefont/Rubik-Italic-VariableFont_wght.ttf') format('ttf');
+    } */ 
+    /* @font-face {
+        font-family: 'gowun-batang-regular';
+        src: url(../assets/Gowun_Batang/GowunBatang-Regular.ttf) format('ttf');
+        font-weight: 400;
+    } */
+      
+
+/* Styling */
+body{
+    margin: 2% 5% 5% 5%;
+    background-color: rgb(235, 235, 255);
+    background-size: 20px 20px;
+    background-image:
+      linear-gradient(to right, rgb(213, 213, 255) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(213, 213, 255) 1px, transparent 1px);
+}
+#article {
+    padding:0% 15% 0% 15%;
+}
+#footnotes{
+    padding:0% 15% 0% 15%;
+    display:grid;
+    grid-template-columns: .1fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "reference note"
+    "reference note"
+    "reference note"
+
+}
+.reference-1{
+    grid-column: "reference";
+}
+
+h1 {
+    text-align: center;
+    font-size: 50pt;
+    color:blue;
+    font-family:'inknut-bold'; 
+    line-height: 1em;
+}
+
+p {
+    font-family:'inknut-light';
+    font-style: normal;
+    line-height: 1.4em;
+    color:rgb(136, 136, 255);
+}
+.details{
+    padding: 0% 3% 0% 3%;
+}
+
+b {
+    font-family:'inknut-semibold';
+    font-style: normal;
+    font-size:large;
+    line-height: 1.5em;
+    color:rgb(90, 90, 255);
+}
+.handmade{
+    font-family: 'inknut-bold';
+    color:blue;
+}
+
+i {
+    font-family:'inknut-semibold';
+    color:rgb(136, 136, 255);
+}
+
+a {
+    color:blue
+}
+a:visited{
+    color:rgb(136, 136, 255);
+}
+
+blockquote{
+    font-family:'inknut-light';
+    line-height: 1.4em;    
+}
