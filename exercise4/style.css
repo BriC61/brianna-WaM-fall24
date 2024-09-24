@@ -1,0 +1,15 @@
+body{
+    margin: 0;
+    padding: 0;
+
+}
+div {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    border: solid 10px red;
+    border-radius: 20px;
+
+    transform: rotate(-45deg) translate(500% 500%) ;
+    /* transform: scaleX(200%); */
+}
