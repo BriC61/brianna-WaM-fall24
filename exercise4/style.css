@@ -3,13 +3,48 @@ body{
     padding: 0;
 
 }
-div {
-    width: 200px;
-    height: 200px;
-    background-color: blue;
-    border: solid 10px red;
-    border-radius: 20px;
-
-    transform: rotate(-45deg) translate(500% 500%) ;
-    /* transform: scaleX(200%); */
+div[class^="letter"] {
+    background-color: lightblue;
+    border: solid 1px red;
 }
+
+.flex-container{
+    background-color:aqua;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:space-around;
+}
+.triangle-small{
+    position:absolute;
+    transform: translate(63px, -150px);
+    z-index: 10;
+
+    width: 0;
+    height: 0;
+    border-left: 37px solid transparent;
+    border-right: 37px solid transparent;
+    border-bottom: 75px solid blue;
+}
+
+.triangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 200px solid red;
+}
+
+
+.trapezoid {
+    position: relative;
+    z-index: 10;
+    transform: translate(25px, -50px);
+
+    height: 0;
+    width: 100px;
+    border-bottom: 50px solid blue;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    
+  }
