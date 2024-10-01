@@ -126,7 +126,7 @@
         position:absolute;
         align-self:flex-end;
         z-index:10;
-        transform: translate(-25px, -20px);
+        transform: translate(-25px, -25px);
     } 
 
 /* LETTER 3 */
@@ -214,7 +214,7 @@
         text-align: center;
     }
     body{
-        margin: 2%;
+        margin: 2% 20% 2% 20%;
         display:flex;
         flex-direction:column;
         justify-content:center;
@@ -229,6 +229,7 @@
     }
     .flex-container{
         /* background-color:aqua; */
+
         display:flex;
         flex-flow: row wrap;
 
