@@ -28,34 +28,36 @@
     width:200px;
     height:200px;
 
-    border: solid 1px greenyellow;
-    animation: 5s cubic-bezier(0.25, 1, 0.5, 1) delivery infinite normal;
+    animation: 5s ease-out delivery infinite;
+
+    /* border: solid 1px greenyellow; */
 
 }
-/* [class^="letter"]:hover{
-    animation: 5s cubic-bezier(0.25, 1, 0.5, 1) delivery infinite normal;
 
-} */
 /* PINS */
 [class^="pin-"]{
-    position:relative;
+    position: relative;
 
-    width: 40px;
+    width: 60px;
     height: 200px;
+    border-radius: 30%;
     background-color:white;
     border:solid red;
 
-    /* animation: 1s cubic-bezier(0.165, 0.84, 0.44, 1) pins infinite normal; */
 }
+
 .pin-1{
+    animation: 5s cubic-bezier(0.165, 0.84, 0.44, 1) 1s pins infinite;
 }
 .pin-2{
-    
+    animation: 5s cubic-bezier(0.165, 0.84, 0.44, 1) .75s pins infinite;
 }
 .pin-3{
+    animation: 5s cubic-bezier(0.165, 0.84, 0.44, 1) .5s pins infinite;
     
 }
 .pin-4{
+    animation: 5s cubic-bezier(0.165, 0.84, 0.44, 1) .25s pins infinite;
     
 }
 .pin-5{
@@ -99,7 +101,7 @@ h1{
     display:flex;
     flex-direction:row-reverse;
     justify-content:space-between;
-    border: solid 1px greenyellow;
+    /* border: solid 1px greenyellow; */
 
 }
 
@@ -127,23 +129,36 @@ body{
         transform: translate(0,0) rotate(0deg);
     }
 
+    90%{
+        transform: translate(100vw, 0) rotate(720deg);
+    }
     100%{
         transform: translate(100vw, 0) rotate(720deg);
     }
 }
+
 
 @keyframes  pins{
     0%{
         transform: rotate(0deg);
         transform-origin: bottom left;
     }
-    10%{
+    15%{
         transform: rotate(0deg);
         transform-origin: bottom left;
     }
-    100%{
+    40%{
         transform: rotate(-90deg);
         transform-origin: bottom left;
+    }
+    90%{
+        transform: rotate(-90deg);
+        transform-origin: bottom left;
+    }
+    100%{
+        transform: rotate(0deg);
+        transform-origin: bottom left;
+        
 
     }
 
