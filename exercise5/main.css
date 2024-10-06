@@ -1,0 +1,150 @@
+/* Checklist
+    - animate letter
+        - interaction
+    - FIX LINKING ON HOME INDEX
+     */
+
+/* card animation? */
+/* LETTER */
+[class^="rectangle-vert"]{
+    position:relative;
+
+    width: 20px;
+    height: 200px;
+    background-color:red;
+}
+.circle-big-3{
+    position:absolute;
+    transform: translate(-5px, -5px);
+
+    width:165px;
+    height:165px;    
+    border-radius:50%;
+    border:20px solid red;
+}
+[class^="letter"] {
+    justify-content:end;
+    display:flex;
+    width:200px;
+    height:200px;
+
+    border: solid 1px greenyellow;
+    animation: 5s cubic-bezier(0.25, 1, 0.5, 1) delivery infinite normal;
+
+}
+/* [class^="letter"]:hover{
+    animation: 5s cubic-bezier(0.25, 1, 0.5, 1) delivery infinite normal;
+
+} */
+/* PINS */
+[class^="pin-"]{
+    position:relative;
+
+    width: 40px;
+    height: 200px;
+    background-color:white;
+    border:solid red;
+
+    /* animation: 1s cubic-bezier(0.165, 0.84, 0.44, 1) pins infinite normal; */
+}
+.pin-1{
+}
+.pin-2{
+    
+}
+.pin-3{
+    
+}
+.pin-4{
+    
+}
+.pin-5{
+    animation: 5s cubic-bezier(0.165, 0.84, 0.44, 1) pins infinite;
+    
+}
+/* PAGE STRUCTURE */
+header{
+    margin: 2% 20% 2% 20%;
+}
+h1{
+    font-size:5vw;
+    font-family: "Rokkitt", serif;
+    text-align: center;
+    color:red;
+}
+.lights{
+    padding:2%;
+    display:block;
+    justify-content:center;
+    border: 15px dotted, white;
+    background-color:blue;
+
+}
+.sign{
+    display:flex;
+    justify-content:center;
+    background-color:yellow;
+
+}
+
+.lane{
+    display:flex;
+    border-bottom: 3vw solid tan;
+    margin:20% 0% 20% 0%;
+    justify-content: space-between;
+
+}
+.deck{
+    width:40vw;
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:space-between;
+    border: solid 1px greenyellow;
+
+}
+
+
+body{
+    margin:5%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow:hidden;
+
+    background: repeating-linear-gradient(
+    to right,
+    navy,
+    navy 3vw,
+    mediumblue 3vw,
+    mediumblue 6vw
+    )
+}
+
+
+/* ANIMATION */
+@keyframes delivery {
+    0%{
+        transform: translate(0,0) rotate(0deg);
+    }
+
+    100%{
+        transform: translate(100vw, 0) rotate(720deg);
+    }
+}
+
+@keyframes  pins{
+    0%{
+        transform: rotate(0deg);
+        transform-origin: bottom left;
+    }
+    10%{
+        transform: rotate(0deg);
+        transform-origin: bottom left;
+    }
+    100%{
+        transform: rotate(-90deg);
+        transform-origin: bottom left;
+
+    }
+
+}

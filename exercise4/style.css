@@ -225,7 +225,7 @@
         height:200px;
         margin:3%;
 
-        /* border: solid 1px red; */
+        border: solid 1px red;
     }
     .flex-container{
         /* background-color:aqua; */
