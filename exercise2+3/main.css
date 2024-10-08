@@ -75,7 +75,7 @@ h1:hover{
 }
 
 p {
-    font-family: "Rubik", serif;
+    font-family: 'inknut-light', serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -103,7 +103,7 @@ b {
 }
 
 i {
-    font-family: "Rubik", serif;
+    font-family: "inknut-semibold", serif;
     font-optical-sizing: auto;
     font-weight: 700;
     border: 10px;
@@ -118,7 +118,7 @@ a:visited{
 }
 
 blockquote{
-    font-family: "Rubik", serif;
+    font-family: "inknut-regular", serif;
     font-optical-sizing: auto;
     font-weight: 700;
     line-height: 1.4em;    
