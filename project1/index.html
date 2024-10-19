@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8" />
+    <title>Order Up! Chinese/American</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="food.css">
+</head>
+<body>
+    <div id="audio"></div>
+    <div id="table">
+        <!-- <div class="food">
+            <div class="image">
+                <img src="assets/_0000s_0010_chow-mein-sandwich.png"/>
+            </div>
+            <div class="info" style="display:none">
+                <h4>chow mein sandwich</h4>
+                <p class="quote">"The mountainous sandwich covered the plate, steam pouring out from beneath its plump hamburger bun “hat."</p>
+                <p class="attribution"> - Katherine Keenan, Jun 2022</p>
+                <p class="recipe"><a href="https://newengland.com/travel/massachusetts/fall-river-chow-mein-sandwich/">RECIPE</a></p>
+            </div> 
+        </div> -->
+    </div>
+    <div id="menu-button">
+        <h1>MENU</h1>
+    </div>
+    <div id="menu" class="modal hidden">
+        <div id="menu-content">
+            <h1>MENU</h1>
+            <div id="menu-items" class="menu-container"> 
+                <!-- how can i also make the text clickable? currently i have to click the borders -->
+                <div class="food-item" data-image="crab-rangoon.png">
+                    <p>crab</p>
+                </div>
+                <div class="food-item" data-image="xi-fan.png">
+                    <p>稀飯</p>
+                </div>
+            </div>
+            <button id="close-modal">Close</button>
+        </div>
+    </div>
+    
+    <div id="clear-table">
+        Clear Table
+    </div>
+    
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="script.js"></script>
+</html>
