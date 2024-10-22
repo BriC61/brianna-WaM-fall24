@@ -56,8 +56,6 @@
     padding: 2%;
     width: 50vw;
     align-content:space-between;
-    transition: opacity 1s 5s ease-in;
-
 }
 
 .about-content:hover .description{
@@ -66,6 +64,7 @@
 
 
 .description{
+    transition: opacity 1s 5s ease-in;
     opacity:0;
 }
 #close-about-modal{
