@@ -36,7 +36,9 @@
     height: 100%;
     z-index: 2;
     text-align:center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-image:url("assets/tabletop.jpg");
+    background-size:contain; 
+    background-position: center center;
     
 
     justify-content: center;
@@ -52,27 +54,26 @@
     }
 
 .about-content{
-    background-color: white;
     padding: 2%;
     width: 50vw;
     align-content:space-between;
 }
-
-.about-content:hover .description{
-    opacity:1;
-}
+    .about-content:hover .description{
+        opacity:1;
+    }
 
 
 .description{
-    transition: opacity 1s 5s ease-in;
+    transition: opacity 1s ease-in;
     opacity:0;
 }
-#close-about-modal{
+#close-about-modal{ 
     position:absolute;
-    right:25%;
+    top:5%;
+    right:5%;
 }
 
-#table{
+/* #table{
     display:flex;
     flex-flow:row wrap;
     position:fixed;
@@ -87,7 +88,7 @@
     background-size:cover;
     background-position: center center;
     background-repeat: repeat;
-}
+} */
 
 * {
     font-family: "Noto Serif TC", serif;
@@ -95,4 +96,8 @@
 
 body{
     background-color:brown;
+}
+
+h1{
+    font-size:50px;
 }

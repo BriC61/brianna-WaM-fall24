@@ -34,6 +34,29 @@ menuItems.addEventListener('click', (e) => {
         imgElement.style.left = Math.floor(Math.random() * 500) + 'px'; // Random left position
         imgElement.style.width = '100px';
         imgElement.style.height = '100px';
+
+
+
+        // const imageName = e.target.getAttribute('data-image');
+        // let existingImg = e.target.querySelector('img');
+        // const imageNameWithoutExtension = imageName.split('.').slice(0, -1);
+        // console.log(this);
+
+        // if(!existingImg){
+        //     const imgElement = document.createElement('img');
+        //     // const txtElement = 
+        //     imgElement.src = `../assets/${imageName}`;
+        //     imgElement.className = `${imageNameWithoutExtension}`;
+        //     imgElement.style.position = 'absolute'; 
+        //     imgElement.style.top = Math.floor(Math.random() * 100) + 'vh'; 
+        //     imgElement.style.left = Math.floor(Math.random() * 100) + 'vw';
+        //     imgElement.style.width = '300px';
+        //     imgElement.style.height = '300px';
+        //     imgElement.style.objectFit = 'contain';
+
+        //     document.body.appendChild(imgElement);
+        // }
+        
     }
 });
 

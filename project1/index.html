@@ -9,6 +9,7 @@
     <title>Order Up! Chinese/American</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="food.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
     <div class="btn-container">
         <div id="audio-btn">PLAY</div>
         <div id="about-btn">About</div>
-        <div id="clear-table">Clear Table</div>
+        <!-- <div id="clear-table">Clear Table</div> -->
     </div>
     
     <div class="about-modal visible">
@@ -40,29 +41,40 @@
         <div id="menu-content">
             <button id="close-menu-modal">X</button>
             <h1>MENU</h1>
-            <div id="menu-items" class="menu-container"> 
-                <div class="food-item" data-image="egg-foo-young-sandwich.png" draggable="true">
-                    egg foo young sandwich
+            <div id="menu-container"> 
+                <div class="menu-item" id="xi_fan_btn">
+                    魷魚稀飯
+                    alsdkjfalkdjf
                 </div>
-                <div class="food-item" data-image="xi-fan.png" draggable="true">
-                    稀飯
+                <div class="menu-item" id="gua_bao_btn">
+                    gua bao
                 </div>
             </div>
             
         </div>
     </div>
-    <div class="xf-info">
-        <!-- <h4></h4> -->
-        <!-- <p class="quote">稀飯 <br> "It has been nearly 5 years since I've had my poh poh's 稀飯. My brother still obssesses over it, but I could never stand the fishy smell of the squid with cilantro"<br>- BC, 2024</p> -->
-        <!-- <p class="attribution"></p> -->
-        <!-- <p class="recipe"><a href="https://www.dinneratthezoo.com/crab-rangoon/">RECIPE</a></p> -->
-    </div> 
+
+    <div class="food-container hidden" id="xi-fan">
+        <img class="food-img" src="../assets/xi-fan.png">
+        <div class="memory">
+            <p>"It has been nearly 5 years since I've had my poh poh's 稀飯. My brother thinks about it nearly every time we talk about our grandparents, but I could never stand the fishy smell of the squid with cilantro"</p>
+        </div>
+    </div>
+
+    <div class="food-container hidden" id="gua-bao" >
+        <img class="food-img" src="../assets/gua-bao.png">
+        <div class="memory">
+            <p>"I got addicted to gua bao when I was 10 years old.  I joined my dad for a one day business trip to a place that happened to be famous for its gua bao.  My dad bought one for me to try, and it was so delicious that, even today, I still can't forget how it looked and tasted."</p>
+            <p><em>Edwina, April 2020</em></p>
+        </div>
+    </div>
 
     <div id="table"></div>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script src="audio.js"></script>
+    <script src="food.js"></script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="script.js"></script>
-<script src="audio.js"></script>
-<script src="food.js"></script>
+
 </html>
