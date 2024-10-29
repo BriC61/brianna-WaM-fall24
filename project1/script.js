@@ -43,11 +43,11 @@ function togglePlayPause(){
     if (isPlaying == false){
         isPlaying = true;
         audioSrc.play();
-        audioBtn.innerText = 'Pause';
+        audioBtn.innerText = '⏸';
         
     } else if (isPlaying == true) {
         audioSrc.pause();
-        audioBtn.innerText = 'Play';
+        audioBtn.innerText = '⏵';
         isPlaying = false;
     }
 }
