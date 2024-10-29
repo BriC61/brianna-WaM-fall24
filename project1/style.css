@@ -24,6 +24,7 @@ h1{
 }
 
 h2{
+    font-weight: 700;
     margin-block-start: 0.5em;
     margin-block-end: 0.3em;
 
@@ -99,6 +100,8 @@ button{
     width: 50vw;
     background-color: rgb(237, 237, 237);
     align-content:space-between;
+    outline:solid 5px white;
+    box-shadow: 0px 0px 0px 10px black inset;;
     z-index:3;
 }
     .about-content:hover .description{
@@ -138,6 +141,8 @@ button{
 
 /* MENU STYLING */
 #menu-button{
+    outline:solid 5px white;
+    box-shadow: 0px 0px 0px 10px black inset;;
     position:fixed;
     margin-left:25vw;
     top:90vh;
@@ -169,10 +174,13 @@ button{
     }
 
 #menu-content{
+    
     padding: 2%;
     width: 50vw;
     height: 55vh;
     z-index:2;
+    outline:solid 5px white;
+    box-shadow: 0px 0px 0px 10px black inset;;
 
 
     background-color: white;
@@ -183,10 +191,11 @@ button{
 }
 #menu-container{
     display:flex;
+
     flex-flow:row nowrap;
     z-index:2;
     margin:7%;
-    justify-items: stretch;
+    justify-content: center;
 }
 #column1, #column2 {
     display:flex;
@@ -199,7 +208,7 @@ button{
 }
 .menu-item{
     font-size:18px;
-    width: 18vw;
+    width: 20vw;
     cursor:pointer;
     padding: 5px;
     border:solid 2px black;
