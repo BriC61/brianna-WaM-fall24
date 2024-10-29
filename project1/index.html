@@ -1,24 +1,19 @@
-<!-- TODO:
-- swap image with text on click and vice versa
-- style menu -->
-
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
     <meta charset="utf-8" />
     <title>Order Up! Chinese/American</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="food.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="btn-container">
-        <div id="audio-btn">PLAY</div>
+        <div id="audio-btn">Play</div>
         <div id="about-btn">About</div>
-        <!-- <div id="clear-table">Clear Table</div> -->
+        <div id="clear-table">Clear Table</div>
     </div>
     
     <div class="about-modal visible">
@@ -26,12 +21,14 @@
             <button id="close-about-modal">X</button>
             <h1>ORDER UP!</h1>
             <p>Mmmh.... a taste of home...</p>
-            <p class="description"> "authentic" identity through the lens of food. What does it mean to be Chinese American? Are you less American if you eat rice instead of bread? Are you less Chinese if you eat hamburger buns with your chow mein?</p>
+            <p class="description">Set your own authentic table of Chinese American food and explore memories and associations</p>
+            <p class="description">By Brianna Cheng</p>
+            <!-- <p class="description"> "authentic" identity through the lens of food. What does it mean to be Chinese American? Are you less American if you eat rice instead of bread? Are you less Chinese if you eat hamburger buns with your chow mein?</p> -->
         </div>
     </div>
 
     <audio id="audio-src">
-        <source src="/assets/Beyond - 光輝歲月.mp4" type="audio/mp4">
+        <source src="/assets/audio_mixdown_Stereo.mp3" type="audio/mp3">
     </audio>
 
     <div id="menu-button">
@@ -42,39 +39,156 @@
             <button id="close-menu-modal">X</button>
             <h1>MENU</h1>
             <div id="menu-container"> 
-                <div class="menu-item" id="xi_fan_btn">
-                    魷魚稀飯
-                    alsdkjfalkdjf
+                <div id="column1">
+                    <div id="bread">
+                        <h2>Bread/包</h2>
+                        <div class="menu-item" id="gua_bao_btn">
+                            割包
+                        </div>
+                        <div class="menu-item" id="chow_mein_sandwich_btn">
+                            Chow Mein Sandwich
+                        </div> 
+                    </div>
+                    <div id="rice">
+                        <h2>Rice/飯</h2>
+                        <div class="menu-item" id="xi_fan_btn">
+                            魷魚稀飯
+                        </div>
+                        <div class="menu-item" id="yangzhou_fried_rice_btn">
+                            House Special Fried Rice
+                        </div>
+                    </div>
+                    <div id="noodle">
+                        <h2>Noodle/面</h2>
+                        <div class="menu-item" id="beef_chow_fun_btn">
+                            干炒牛河
+                        </div>
+                        <div class="menu-item" id="chow_mein_btn">
+                            Chow Mein
+                        </div>
+                    </div>
                 </div>
-                <div class="menu-item" id="gua_bao_btn">
-                    gua bao
+                <div id="column2">
+                    <div id="meat">
+                        <h2>Meat/肉</h2>
+                        <div class="menu-item" id="wings_btn">
+                            House Special Wings
+                        </div>
+                        <div class="menu-item" id="egg_rolls_btn">
+                            Egg Rolls
+                        </div>
+                        <div class="menu-item" id="siu_mai_btn">
+                            Siu Mai
+                        </div>
+                        <div class="menu-item" id="lobster_cantonese_btn">
+                            Lobster Cantonese
+                        </div>
+                        <div class="menu-item" id="sweet_and_sour_pork_btn">
+                            Sweet and Sour Pork
+                        </div>
+                    </div>
+                    <div id="veggies">
+                        <h2>Vegetables and Tofu/菜</h2>
+                        <div class="menu-item" id="broccoli_with_garlic_btn">
+                            Broccoli with Garlic
+                        </div>
+                    </div>
                 </div>
             </div>
-            
         </div>
     </div>
 
-    <div class="food-container hidden" id="xi-fan">
-        <img class="food-img" src="../assets/xi-fan.png">
-        <div class="memory">
-            <p>"It has been nearly 5 years since I've had my poh poh's 稀飯. My brother thinks about it nearly every time we talk about our grandparents, but I could never stand the fishy smell of the squid with cilantro"</p>
-        </div>
-    </div>
 
+<!-- BREAD -->
     <div class="food-container hidden" id="gua-bao" >
-        <img class="food-img" src="../assets/gua-bao.png">
+        <img class="food-img" src="./assets/gua-bao.webp">
         <div class="memory">
             <p>"I got addicted to gua bao when I was 10 years old.  I joined my dad for a one day business trip to a place that happened to be famous for its gua bao.  My dad bought one for me to try, and it was so delicious that, even today, I still can't forget how it looked and tasted."</p>
             <p><em>Edwina, April 2020</em></p>
         </div>
     </div>
+    <div class="food-container hidden" id="chow-mein-sandwich" >
+        <img class="food-img" src="./assets/chow-mein-sandwich.webp">
+        <div class="memory">
+            <p>"As a RISD student in the 50&rsquo;s, I remember walking up to Toy Sun&rsquo;s, Thayer St., East Side of Providence for a delicious late night snack/study break… a chow mein sandwich… on a hamburger roll! Invented in Fall River, btw. The price was right, too!"</p>
+            <p><em>Joanne Egan, Oct 2024</em></p>
+            
+        </div>
+    </div>
+    
+<!-- RICE -->
+    <div class="food-container hidden" id="xi-fan">
+        <img class="food-img" src="./assets/you-yu-xi-fan.webp">
+        <div class="memory">
+            <p>"It has been nearly 5 years since I've had my poh poh's 稀飯. My brother thinks about it nearly every time we talk about our grandparents, but I could never stand the fishy smell of the squid with cilantro"</p>
+        </div>
+    </div>
+    <div class="food-container hidden" id="yangzhou-fried-rice" >
+        <img class="food-img" src="./assets/yangzhou-fried-rice.webp">
+        <div class="memory">
+            <p>"My family went to Mee Hongs every Sunday growing up. We were waited on by a man named Chen, he was a friend of my Uncle. When I was young I did not like most food but he always brought me Veal cutlet, brown gravy, white rice and French fries. Almond cookie for dessert. As I got older it was shrimp and chicken chow mein, fried rice and tea."</p>
+            <p><em>Dennis, Sept 2013</em></p>
+        </div>
+    </div>
+<!-- NOODLE -->
+    <div class="food-container hidden" id="beef-chow-fun" >
+        <img class="food-img" src="./assets/beef-chow-fun.webp">
+        <div class="memory">
+            <p>"I used to be completely hamburgers-and-pizza as a kid. But when I went off to college, suddenly all I craved were rice and noodles. As soon as I landed home from college, I made my parents stop at a chinese restaurant on the way so we could eat beef chow fun."</p>
+        </div>
+    </div>
+    <div class="food-container hidden" id="chow-mein" >
+        <img class="food-img" src="./assets/chow-mein.webp">
+        <div class="memory">
+            <p>"When I was a young boy, my mother took me shopping with her and promised if I behaved she would take me to Mee Hong for chow mien. To this day it was my favorite and I have searched for years (I&rsquo;m 70) to find a place that makes the same recipe with no luck."</p>
+            <p><em>Richard, Feb 2013</em></p>
+        </div>
+    </div>
+<!-- MEAT -->
+    <div class="food-container hidden" id="wings" >
+        <img class="food-img" src="./assets/wings.webp">
+        <div class="memory">
+            <p>"I was a waitress at the Ming while I was in art school. I used to sit with “Charlie” at the front door and used to pick up his dry cleaning for him. Often he would have the remains of Ming wings in the pockets of his suit jackets :)"</p>
+            <p><em>Joanne M, March 2024</em></p>
+        </div>
+    </div>
+    <div class="food-container hidden" id="egg-rolls" >
+        <img class="food-img" src="./assets/egg-roll.webp">
+        <div class="memory">
+            <p>"Sundays were the night my mom didn&rsquo;t cook and every other Sunday we got take out from Luke&rsquo;s. My dad was from New York and my mom from Los Angeles where good Chinese restaurants were plentiful. They considered Luke&rsquo;s to be the best, most authentic (New York and California style) Chinese place outside of Boston. Some of my earliest memories are of Luke&rsquo;s (big fish tank, I think?) and their eggrolls and lobster Cantonese in lobster sauce. They always gave my brother and me the little paper parasols to take home and play with."</p>
+            <p><em>Marya, Sept 2013</em></p>
+        </div>
+    </div>
+    <div class="food-container hidden" id="siu-mai" >
+        <img class="food-img" src="./assets/siu-mai.webp">
+        <div class="memory">
+            <p>"Bob Tow ran the restaurant after his father died, and introduced Dim Sum to Providence before anyone who was not Chinese in the state even knew what it was."</p>
+            <p><em>Kenn, Jan 2009</em></p>
+        </div>
+    </div>
+    <div class="food-container hidden" id="lobster-cantonese" >
+        <img class="food-img" src="./assets/lobster-cantonese.webp">
+        <div class="memory">
+            <p>"Henry Luke was my uncle. My parents met there as my dad was a regular, and my mom of course worked there growing up. My mom still cooks lobster Cantonese, and it&rsquo;s still delicious. "</p>
+            <p><em>Rebecca, Oct 2016</em></p>
+        </div>
+    </div>
+    <div class="food-container hidden" id="sweet-and-sour-pork" >
+        <img class="food-img" src="./assets/sweet-and-sour-pork.webp">
+        <div class="memory">
+            <p>"When we were ordering Chinese take out for the first time in a while, my mom and I were arguing over which type of sweet and sour pork to get. I didn't even know there were multiple kinds! I just thought there was the one with the artificially bright red sauce that only I liked. Apparently my mom also liked sweet and sour pork, just not that kind."</p>
+        </div>
+    </div>
+<!-- VEGGIES -->
+    <div class="food-container hidden" id="broccoli-with-garlic" >
+        <img class="food-img" src="./assets/broccoli-with-garlic.webp">
+        <div class="memory">
+            <p>"Sometime the english translations of Chinese foods can be quite liberal... I'd always have to ask my mom to read the Chinese for me to check if I was ordering the right thing."</p>
+        </div>
+    </div>
 
     <div id="table"></div>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
-    <script src="audio.js"></script>
-    <script src="food.js"></script>
 </body>
-
 </html>

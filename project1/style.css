@@ -1,7 +1,46 @@
+/* TABLE OF CONTENTS
+    10. TEXT/UNIVERSAL
+    32. BUTTONS
+    69. ABOUT MODAL
+    118. TABLE
+    139. MENU STYLING
+    215. FOOD STYLING
+*/
+
+/* TEXT/UNIVERSAL */
+* {
+    font-family: "LXGW WenKai TC", serif;
+}
+
+body{
+    background-color:brown;
+}
+
+h1{
+    text-align:center;
+    font-size:40px;
+    font-family: "LXGW WenKai TC", serif;
+    font-weight: 700;
+}
+
+h2{
+    margin-block-start: 0.5em;
+    margin-block-end: 0.3em;
+
+}
+
+/* BUTTONS */
+button{
+    background-color: transparent;
+    cursor:pointer;
+    font-size:30px;
+    border:none;
+}
 .btn-container{
     display:flex;
     flex-flow:row wrap;
 }
+
 #about-btn, #audio-btn, #clear-table{
     cursor: pointer;
     position:fixed;
@@ -10,24 +49,24 @@
 
     margin:2vh;
     z-index:1;
+
+    font-size:20px;
+    font-weight:700;
+    color:rgb(217, 152, 134);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(217, 152, 134);
 }
 #about-btn{
     left:2vw;
-    background-color:white;
-    border:dashed 3px blue;
 }
 #audio-btn{
     right: 15vw;
-    background-color:white;
-    border:dashed 3px black;
-
 }
 #clear-table{
     right: 2vw;
-    border:dashed 3px red;
-    background-color:white;
 }
 
+/* ABOUT MODAL */
 .about-modal{
     position: fixed;
     top: 0;
@@ -36,9 +75,11 @@
     height: 100%;
     z-index: 2;
     text-align:center;
-    background-image:url("assets/tabletop.jpg");
+    background-size: 100% 100%;
+    background-image: linear-gradient(180deg, #2c2c2c65 0%, #0000008a 35%, rgb(0, 0, 0) 100%);
+    /* background-image:url("assets/tabletop.jpg");
     background-size:contain; 
-    background-position: center center;
+    background-position: center center; */
     
 
     justify-content: center;
@@ -54,50 +95,175 @@
     }
 
 .about-content{
-    padding: 2%;
+    padding: 2% 2% 5% 2%;
     width: 50vw;
+    background-color: rgb(237, 237, 237);
     align-content:space-between;
+    z-index:3;
 }
     .about-content:hover .description{
-        opacity:1;
+        transition: opacity 1s;
+        opacity:.35;
     }
-
-
-.description{
-    transition: opacity 1s ease-in;
-    opacity:0;
-}
+    
+    .description{
+        opacity:0;
+    }
+    
 #close-about-modal{ 
-    position:absolute;
-    top:5%;
-    right:5%;
+    position:relative;
+    left:45%;
 }
 
-/* #table{
+/* TABLE */
+#table{
     display:flex;
     flex-flow:row wrap;
     position:fixed;
-    width:100%;
-    height:100%;
-    margin:0;
+    width:110%;
+    height:110%;
+    margin:-1%;
     padding: 5%;
-    overflow-y: hidden;
+    z-index:0;
+
+    overflow: hidden;
+    opacity: 0.9;
 
     background-image:url("assets/tabletop.jpg");
     background-blend-mode:overlay;
     background-size:cover;
     background-position: center center;
     background-repeat: repeat;
-} */
-
-* {
-    font-family: "Noto Serif TC", serif;
 }
 
-body{
-    background-color:brown;
+/* MENU STYLING */
+#menu-button{
+    position:fixed;
+    margin-left:25vw;
+    top:90vh;
+    width:50vw;
+    height:100vh;
+    background-color:white;
+    z-index:1;
+    overflow-y:hidden;
+    filter: drop-shadow(30px 10px 4px #0000007a);
 }
 
-h1{
-    font-size:50px;
+.menu-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    
+
+    justify-content: center;
+    align-items: end;  
 }
+    .menu-modal.visible{
+        display: flex;
+    }
+    .menu-modal.hidden{
+        display: none;
+    }
+
+#menu-content{
+    padding: 2%;
+    width: 50vw;
+    height: 55vh;
+    z-index:2;
+
+
+    background-color: white;
+    background-position: center top;
+    background-size: 70vw 100vh;
+    background-repeat: no-repeat;
+    filter: drop-shadow(30px 10px 4px #0000007a);
+}
+#menu-container{
+    display:flex;
+    flex-flow:row nowrap;
+    z-index:2;
+    margin:7%;
+    justify-items: stretch;
+}
+#column1, #column2 {
+    display:flex;
+    height:45vh;
+    flex-flow:column wrap;
+    justify-content:flex-start;
+}
+#bread, #rice, #noodle, #meat, #veggies {
+    margin: 0px 20px 10px 20px;
+}
+.menu-item{
+    font-size:18px;
+    width: 18vw;
+    cursor:pointer;
+    padding: 5px;
+    border:solid 2px black;
+    margin:-1px;
+}
+
+#close-menu-modal{
+    position:absolute;
+    right:5%;
+}
+
+
+/* FOOD STYLING */
+.food-container{
+    top:50%;
+    left:50%;
+    position: absolute;
+    width:300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit:contain;
+    z-index: 1;
+
+    
+    
+}
+    .food-container:hover .food-img{
+        opacity:0;
+        transition: 2s;
+    }
+    .food-container:hover .memory{
+        opacity:1;
+        transition: 2s;
+    }
+
+.hidden{
+    display:none;
+}
+
+
+.food-img{
+    width:300px;
+    display:flex;
+    position: fixed;
+    object-fit: contain;
+    opacity:1;
+}
+ 
+.memory{
+    width:300px;
+    box-sizing:border-box;
+
+    position: fixed;
+    font-size: 16px;
+    text-align: center;
+    padding:1%;
+    color:rgb(217, 152, 134);
+    z-index:1;
+    font-weight:400;
+    font-style:italic;
+
+    opacity:0;
+    
+}
+
