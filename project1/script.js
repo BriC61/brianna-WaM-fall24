@@ -3,8 +3,21 @@
 //35. AUDIO
 //57. FOOD
 
+//TO DO:
+//draggable
+//clear table
+//add collision detection: with window, with other images
+//hoverable/interactable food even when menu is open
+//clickable instead of hover to reveal memories
+//TROUBLESHOOT:try changing variables to var or let instead of const
+
 
 //ABOUT MODAL
+console.log("window.innerHeight");
+console.log(window.innerHeight);
+console.log("window.innerWidth");
+console.log(window.innerWidth);
+
 const aboutButton = document.getElementById('about-btn');
 const aboutModal = document.getElementById('about-modal');
 const closeAboutModal = document.getElementById('close-about-modal');
