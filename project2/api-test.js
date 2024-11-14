@@ -11,6 +11,7 @@ let currTemp;
 let currHumidity;
 let currWindSpeed;
 let currCondition;
+let currLocation;
 
 window.addEventListener("DOMContentLoaded", () => {
 // USER INPUT
@@ -44,13 +45,13 @@ function getLocationData() {
       .then(data => {
         lat = data.lat;
         lon = data.lon;
-        // console.log ({lat, lon});
+        currLocation = data.name;
+        console.log (currLocation);
 
         getWeatherData(lat, lon); // Fetch weather data using the obtained lat/lon
       })
       .catch(error => {
         console.error('Error fetching location data:', error);
-        document.getElementById('description').textContent = 'Failed to load location data.';
       });
 }
 
@@ -63,7 +64,7 @@ function getWeatherData(lat, lon){
     .then(response => response.json())
     .then(data => {
       // console.log(data);
-      currTemp = data.main.temp;
+      currTemp = Math.round(data.main.temp);
       currHumidity = data.main.humidity;
       currWindSpeed = data.wind.speed;
       currCondition = data.weather[0].description;
@@ -73,18 +74,19 @@ function getWeatherData(lat, lon){
     })
     .catch(error => {
       console.error('Error fetching weather data:', error);
-      document.getElementById('description').textContent = 'Failed to load weather data.';
     });
 }
 
 function printData(){
   // console.log ({currTemp, currHumidity, currWindSpeed, currCondition});
   // console.log({displayTemp, displayHumidity, displayWindSpeed, displayCondition});
-  
-  document.getElementById("currTemp").innerHTML = "Temp: " + currTemp + "°f";
-  document.getElementById("currHumidity").innerHTML = "Humidity: " + currHumidity +"%";
-  document.getElementById("currWindSpeed").innerHTML = "Wind Speed: " + currWindSpeed + "mph";
-  document.getElementById("currCondition").innerHTML = "Conditions: " + currCondition;
+
+  document.getElementById("currLocation").innerHTML = "in " + currLocation.toLowerCase() + ":";
+  document.getElementById("currTemp").innerHTML = "temp: " + currTemp + "°f";
+  document.getElementById("currHumidity").innerHTML = "humidity: " + currHumidity +"%";
+  document.getElementById("currWindSpeed").innerHTML = "wind speed: " + currWindSpeed + "mph";
+  document.getElementById("currCondition").innerHTML = "conditions: " + currCondition;
+
 
 }
 

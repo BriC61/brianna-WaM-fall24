@@ -3,25 +3,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content=""width=device-width, initial-scale="1.0">
+    <link rel="stylesheet" href="./style.css">
     <script src="./api-test.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script> -->
-
 
 </head>
 <body>
-    <p>
-        Zip: <input id ="zip" type ="text" inputmode="numeric" placeholder = "enter your zip code"></input>
-        <button id ="submit">submit</button>
-    </p>
-    <p>
-        <span id="currTemp"></span><br>
-        <span id="currHumidity"></span><br>
-        <span id="currWindSpeed"></span><br>
-        <span id="currCondition"></span>
-    </p>
-       
+    <div id="section1">
+        <div id="zipInput">
+            <h3>zip:</h3>
+            <input id ="zip" type ="text" inputmode="numeric" placeholder = "enter your zip code"></input>
+            <button id ="submit">submit</button>
+        </div>
+        <p>
+            <b><span id="currLocation"></span></b><br>
+            <span id="currTemp"></span><br>
+            <span id="currHumidity"></span><br>
+            <span id="currWindSpeed"></span><br>
+            <span id="currCondition"></span>
+        </p>
+        <img id="grass" src = "./assets/grass.svg"/>
+    </div>
+    <div id="bottomGrass"></div>
+    <div id="section2">
+        <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Hendrerit risus id malesuada justo dui sollicitudin. Erat vivamus vel; per tempor proin sapien. Ante dis ad sem sapien ullamcorper. Dignissim convallis eu in porta nunc est torquent. Nam litora sed egestas magna curabitur. Bibendum maecenas maecenas tristique turpis elit suscipit sapien. Efficitur hendrerit purus velit curabitur vulputate.<br>
+            Natoque cursus consequat nisi lectus porttitor ex neque. Elementum natoque faucibus placerat; facilisi urna est. Eleifend lobortis tincidunt tristique vivamus placerat. Sit libero blandit amet luctus, massa sit rutrum. Nam primis in consectetur lectus quis nam nullam ad nisl. Egestas adipiscing per nostra per a conubia. Platea vivamus sem nibh nullam efficitur natoque netus placerat dignissim.
+        </p>
+    </div>
     
 </body>
-
-
 </html>
