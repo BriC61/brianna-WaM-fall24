@@ -1,3 +1,33 @@
+
+// SET DATE AND TIME
+window.addEventListener("DOMContentLoaded",() => {
+  const time = document.getElementById("currTime");
+  const date = document.getElementById("date");
+
+  function printDate() {
+    let d = new Date();
+    const dateOptions= {
+      month:"2-digit",
+      day:"2-digit",
+      year:"numeric"
+    }
+    date.innerHTML = d.toLocaleDateString('en-US',dateOptions);
+  }
+
+  setInterval(() =>{
+    let t = new Date();
+    const timeOptions = {
+      hour:"2-digit",
+      minute:"2-digit",
+      second:"2-digit"
+    }
+    time.innerHTML = t.toLocaleTimeString('en-US',timeOptions).toLowerCase();
+  }, 1000);
+
+  printDate();
+});
+
+// WEATHER API CONNECTION
 let zipApi = "http://api.openweathermap.org/geo/1.0/zip?zip=";
 let keyApi = "&appid=4ba86f24a3306f549b4a928c42926ccb";
 let zipApiUrl;
@@ -19,6 +49,7 @@ const submitButton = document.getElementById("submit");
 
 submitButton.addEventListener("click", getNewZip)
 function getNewZip(){
+  document.getElementById("zipForm").style.display="none";
   const zipInput = document.getElementById("zip").value;
   // console.log(zipInput);
 
@@ -77,17 +108,17 @@ function getWeatherData(lat, lon){
     });
 }
 
+
 function printData(){
+  document.getElementById("header").style.display="inline-flex";
   // console.log ({currTemp, currHumidity, currWindSpeed, currCondition});
   // console.log({displayTemp, displayHumidity, displayWindSpeed, displayCondition});
-
-  document.getElementById("currLocation").innerHTML = "in " + currLocation.toLowerCase() + ":";
-  document.getElementById("currTemp").innerHTML = "temp: " + currTemp + "°f";
-  document.getElementById("currHumidity").innerHTML = "humidity: " + currHumidity +"%";
-  document.getElementById("currWindSpeed").innerHTML = "wind speed: " + currWindSpeed + "mph";
-  document.getElementById("currCondition").innerHTML = "conditions: " + currCondition;
-
-
+  document.getElementById("currLocation").innerHTML= currLocation.toLowerCase();
+  document.getElementById("currTemp").innerHTML = currTemp + "°f";
+  document.getElementById("currHumidity").innerHTML = currHumidity +"%";
+  document.getElementById("currWindSpeed").innerHTML = currWindSpeed + "mph";
+  document.getElementById("currCondition").innerHTML = currCondition;
 }
+
 
 

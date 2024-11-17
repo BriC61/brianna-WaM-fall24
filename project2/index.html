@@ -3,24 +3,48 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content=""width=device-width, initial-scale="1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <script src="./api-test.js"></script>
+    <script src="./script.js"></script>
 
 </head>
 <body>
     <div id="section1">
-        <div id="zipInput">
+        <div id="header">
+            <div id="dateTime">
+                <div class="container">
+                    <span id="date"></span>
+                </div>
+                <div class="container">
+                    <span id="currTime"></span>
+                </div>
+                <div class="container">
+                    <span id="currLocation"></span>
+                </div>
+            </div>
+            <div id="weather">
+                <span class="container">
+                    <img src="./assets/sun.svg"/>
+                    <span id="conditionIcon"></span>
+                    <span id="currTemp"></span>
+                </span>
+                <span class="container">
+                    <img src="./assets/wind.svg"/>
+                    <span id="currWindSpeed"></span>
+                </span>
+                <span class="container">
+                    <img src="./assets/humidity.svg"/>
+                    <span id="currHumidity"></span>
+                </span>
+            </div>
+        </div>
+        <div id="zipForm">
             <h3>zip:</h3>
             <input id ="zip" type ="text" inputmode="numeric" placeholder = "enter your zip code"></input>
             <button id ="submit">submit</button>
         </div>
-        <p>
-            <b><span id="currLocation"></span></b><br>
-            <span id="currTemp"></span><br>
-            <span id="currHumidity"></span><br>
-            <span id="currWindSpeed"></span><br>
-            <span id="currCondition"></span>
-        </p>
         <img id="grass" src = "./assets/grass.svg"/>
     </div>
     <div id="bottomGrass"></div>
