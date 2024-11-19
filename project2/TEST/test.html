@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiggling Flower Stem</title>
+  <style>
+    #svgCanvas {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="svgCanvas"></div>
+
+  <script>
+    // Set up SVG and stem path
+    const svgNamespace = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNamespace, "svg");
+    svg.setAttribute("width", "200");
+    svg.setAttribute("height", "400");
+    svg.setAttribute("viewBox", "0 0 200 400");
+
+    const stemPath = document.createElementNS(svgNamespace, "path");
+    stemPath.setAttribute("d", "M100,400 Q100,300 100,200 Q100,100 100,0"); // Simple vertical stem path
+    stemPath.setAttribute("stroke", "green");
+    stemPath.setAttribute("stroke-width", "50");
+    stemPath.setAttribute("fill", "none");
+
+    svg.appendChild(stemPath);
+    document.getElementById("svgCanvas").appendChild(svg);
+
+    let animationFrame;
+    let wiggleAmplitude = 0;
+    let wiggleFrequency = .01; // Controls the "tightness" of the wiggle
+    let hoverStartTime;
+
+    // Function to apply sine wave transformation to the stem path
+    function wiggleStem() {
+      const elapsedTime = (Date.now() - hoverStartTime) / 1000; // Time in seconds
+      const newPath = [];
+      for (let y = 0; y <= 400; y += 10) { // Increment y for the wave's resolution
+        const x = 100 + wiggleAmplitude * Math.sin(y * wiggleFrequency + elapsedTime * 2 * Math.PI);
+        newPath.push(`${x},${400 - y}`);
+      }
+
+      // Construct the new "wiggling" path as a smooth line
+      const newPathData = `M${newPath[0]} ${newPath.slice(1).map(coord => `L${coord}`).join(" ")}`;
+      stemPath.setAttribute("d", newPathData);
+
+      // Continue the animation
+      animationFrame = requestAnimationFrame(wiggleStem);
+    }
+
+    // Event listeners to start and stop the wiggle
+    stemPath.addEventListener("mouseenter", () => {
+      wiggleAmplitude = Math.random() * 20 + 10; // Random amplitude between 10 and 30
+      hoverStartTime = Date.now();
+      wiggleStem();
+    });
+
+    stemPath.addEventListener("mouseleave", () => {
+        stemPath.style.animationDelay = "5s";
+      cancelAnimationFrame(animationFrame);
+      // Reset to original straight stem
+    //   stemPath.setAttribute("d", "M100,400 Q100,300 100,200 Q100,100 100,0");
+    });
+  </script>
+</body>
+</html>

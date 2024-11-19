@@ -1,3 +1,7 @@
+// RESET PAGE
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 
 // SET DATE AND TIME
 window.addEventListener("DOMContentLoaded",() => {
@@ -37,11 +41,11 @@ let lon;
 let weatherApi = "https://api.openweathermap.org/data/2.5/weather?"
 let weatherApiUrl;
 
-let currTemp;
-let currHumidity;
-let currWindSpeed;
-let currCondition;
-let currLocation;
+var currTemp;
+var currHumidity;
+var currWindSpeed;
+var currCondition;
+var currLocation;
 
 window.addEventListener("DOMContentLoaded", () => {
 // USER INPUT
@@ -49,11 +53,13 @@ const submitButton = document.getElementById("submit");
 
 submitButton.addEventListener("click", getNewZip)
 function getNewZip(){
-  document.getElementById("zipForm").style.display="none";
+  
   const zipInput = document.getElementById("zip").value;
   // console.log(zipInput);
 
   if(zipInput){
+    document.body.style.overflowY="scroll";
+    document.getElementById("zipForm").style.display="none";
     zipApiUrl = zipApi + zipInput + keyApi;
     // console.log(zipApiUrl);
 
@@ -109,16 +115,76 @@ function getWeatherData(lat, lon){
 }
 
 
+
 function printData(){
   document.getElementById("header").style.display="inline-flex";
+  document.getElementById("flower4").style.display="block";
   // console.log ({currTemp, currHumidity, currWindSpeed, currCondition});
   // console.log({displayTemp, displayHumidity, displayWindSpeed, displayCondition});
   document.getElementById("currLocation").innerHTML= currLocation.toLowerCase();
   document.getElementById("currTemp").innerHTML = currTemp + "°f";
   document.getElementById("currHumidity").innerHTML = currHumidity +"%";
   document.getElementById("currWindSpeed").innerHTML = currWindSpeed + "mph";
-  document.getElementById("currCondition").innerHTML = currCondition;
+  // document.getElementById("currCondition").innerHTML = currCondition;
 }
 
+// FLOWER MEANING SCRIPT
+var countryList = new Array(
+  "china", 
+  "europe", 
+  "japan", 
+  "australia", 
+  "united states", 
+  "buddhism", 
+  "iran"
+);
 
+var meaningList = new Array(
+  "longevity • fortune • nobility",
+  "death • mourning",
+  "imperial power • longevity • autumn",
+  "motherhood",
+  "happiness • friendship",
+  "yang energy",
+  "worship of anishi vanghuhi"
+);
 
+var addInfoList = new Array(
+  "given during baby showers and birthday celebrations",
+  "given during funerals and memorials; placed on graves on Day of the Dead",
+  "used in imperial regalia",
+  "nicknamed “mums,” given for mother\'s day celebration",
+  "linked with arrival of autumn",
+  "associated with masculine, active, positive power",
+  "a female spiritual being who presides over good blessings and rewards"
+);
+
+function dailyMeaning() {
+  var d = new Date();
+  var t = d.getTime();
+
+  var days = Math.floor(t/86400000);
+  console.log(d);
+  console.log(t);
+  console.log(days);
+  var i = days % countryList.length;
+  console.log(i);
+
+  document.getElementById("country").innerHTML = countryList[i];
+  document.getElementById("meaning").innerHTML = meaningList[i];
+  document.getElementById("addInfo").innerHTML = addInfoList[i];
+}
+
+window.addEventListener("DOMContentLoaded",() => {
+  dailyMeaning();
+  tempFlowerFrequency();
+});
+
+console.log(currTemp);
+console.log(currLocation);
+
+function tempFlowerFrequency (){
+  // var freq = (currTemp.value-50)/5;
+  console.log(currTemp);
+  console.log(freq);
+}

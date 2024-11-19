@@ -5,24 +5,27 @@
     <meta name="viewport" content=""width=device-width, initial-scale="1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
 
 </head>
 <body>
+
     <div id="section1">
+        <!-- <img id="longStem" src="./assets/longStem.svg"/> -->
         <div id="header">
             <div id="dateTime">
+                <div class="container">
+                    <span id="currLocation"></span>
+                </div>
                 <div class="container">
                     <span id="date"></span>
                 </div>
                 <div class="container">
                     <span id="currTime"></span>
                 </div>
-                <div class="container">
-                    <span id="currLocation"></span>
-                </div>
+                
             </div>
             <div id="weather">
                 <span class="container">
@@ -40,20 +43,51 @@
                 </span>
             </div>
         </div>
+            
         <div id="zipForm">
             <h3>zip:</h3>
             <input id ="zip" type ="text" inputmode="numeric" placeholder = "enter your zip code"></input>
             <button id ="submit">submit</button>
         </div>
         <img id="grass" src = "./assets/grass.svg"/>
+        <img id="flower4" src="./assets/flower4.svg"/>    
     </div>
     <div id="bottomGrass"></div>
+    
     <div id="section2">
-        <p>
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Hendrerit risus id malesuada justo dui sollicitudin. Erat vivamus vel; per tempor proin sapien. Ante dis ad sem sapien ullamcorper. Dignissim convallis eu in porta nunc est torquent. Nam litora sed egestas magna curabitur. Bibendum maecenas maecenas tristique turpis elit suscipit sapien. Efficitur hendrerit purus velit curabitur vulputate.<br>
-            Natoque cursus consequat nisi lectus porttitor ex neque. Elementum natoque faucibus placerat; facilisi urna est. Eleifend lobortis tincidunt tristique vivamus placerat. Sit libero blandit amet luctus, massa sit rutrum. Nam primis in consectetur lectus quis nam nullam ad nisl. Egestas adipiscing per nostra per a conubia. Platea vivamus sem nibh nullam efficitur natoque netus placerat dignissim.
-        </p>
+        <div class="sec2Container">
+            <div class="heading">
+                <img class="flowerIcon" src="./assets/flowerIcon.svg"/>
+                <h2>chrysanthemum</h2>
+            </div>
+            <div class="textSection">
+                <span id="country"></span>
+                <span id="meaning"></span>
+                <span id="addInfo"></span>
+            </div>
+        </div>
+        <div class="sec2Container">
+            <div class="heading">
+                <img class="flowerIcon" src="./assets/flowerIcon.svg"/>
+                <div>
+                    <h2>monthly recipe</h2>
+                    <h4>chrysanthemum tea • 菊花茶</h4>
+                </div>
+            </div>
+            <div class="textSection">
+                <ol>
+                    <li>add small chunks of rock sugar into the dried chrysanthemum flowers in the teapot or tea cup</li>
+                    <li>steep the flowers in hot water (194&ndash;212°F) for 2&ndash;3 minutes</li>
+                    <li>enjoy!</li>
+                </ol>
+            </div>
+        </div>
+        <div id="footer"></div>
+        
     </div>
+    
+    
+
     
 </body>
 </html>
