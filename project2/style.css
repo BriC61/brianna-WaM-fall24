@@ -51,10 +51,12 @@ button{
     flex-flow:row wrap;
     justify-content:space-between;
     align-items:center;
+    z-index:5;
 }
 #header span{
     font-size:25px;
     font-weight:500;
+    font-variant-numeric: tabular-nums;
     vertical-align: middle;
 }
 #dateTime, #weather{
@@ -105,18 +107,40 @@ button{
     z-index:5;
 }
 /* flower styling */
-
-[id^="flower"] {
-    position:absolute;
-    top:15%;
-}
-
-#flower4{
+#flower5{
     display:none;
-    left:7%;
+    top:15%;
+    left:10%;
+    
     z-index:1;
     max-width:35%;
     clip-path:view-box;
+}
+
+#flwrContainer{
+    display:none;
+    width:100vw;
+    height:100vh;
+    overflow: hidden;
+    
+}
+[id^="flower"] {
+    display:none;
+    position:absolute;
+    max-width:90%
+}
+#flowerHead1{
+    left: 70%;
+}
+#flowerHead2{
+    left:60%;
+}
+#flowerHead3{
+    left:45%;
+}
+#flowerHead4{
+    left:2%;
+    z-index:2;
 }
 
 
@@ -221,6 +245,7 @@ body{
     background-color:rgb(14,51,182);
     margin:0;
     font-family:'Bricolage Grotesque', Courier, sans-serif;
-    /* overflow-y: hidden; */
+    overflow-x:hidden;
+    overflow-y: hidden;
     overscroll-behavior: none;
 }

@@ -1,3 +1,6 @@
+//mouse enter triggers stem animation
+//night shift gradient
+
 // RESET PAGE
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -41,33 +44,33 @@ let lon;
 let weatherApi = "https://api.openweathermap.org/data/2.5/weather?"
 let weatherApiUrl;
 
-var currTemp;
-var currHumidity;
-var currWindSpeed;
-var currCondition;
-var currLocation;
+let currTemp;
+let currHumidity;
+let currWindSpeed;
+let currCondition;
+let currLocation;
 
 window.addEventListener("DOMContentLoaded", () => {
 // USER INPUT
-const submitButton = document.getElementById("submit");
+  const submitButton = document.getElementById("submit");
 
-submitButton.addEventListener("click", getNewZip)
-function getNewZip(){
-  
-  const zipInput = document.getElementById("zip").value;
-  // console.log(zipInput);
+  submitButton.addEventListener("click", getNewZip)
+  function getNewZip(){
+    
+    const zipInput = document.getElementById("zip").value;
+    // console.log(zipInput);
 
-  if(zipInput){
-    document.body.style.overflowY="scroll";
-    document.getElementById("zipForm").style.display="none";
-    zipApiUrl = zipApi + zipInput + keyApi;
-    // console.log(zipApiUrl);
+    if(zipInput){
+      document.body.style.overflowY="scroll";
+      document.getElementById("zipForm").style.display="none";
+      zipApiUrl = zipApi + zipInput + keyApi;
+      // console.log(zipApiUrl);
 
-    getLocationData();
-  } else{
-    alert("Please enter a zip code");
+      getLocationData();
+    } else{
+      alert("Please enter a zip code");
+    }
   }
-}
 });
 
 // TESTING CONNECTION
@@ -83,7 +86,7 @@ function getLocationData() {
         lat = data.lat;
         lon = data.lon;
         currLocation = data.name;
-        console.log (currLocation);
+        // console.log (currLocation);
 
         getWeatherData(lat, lon); // Fetch weather data using the obtained lat/lon
       })
@@ -118,14 +121,53 @@ function getWeatherData(lat, lon){
 
 function printData(){
   document.getElementById("header").style.display="inline-flex";
-  document.getElementById("flower4").style.display="block";
-  // console.log ({currTemp, currHumidity, currWindSpeed, currCondition});
-  // console.log({displayTemp, displayHumidity, displayWindSpeed, displayCondition});
+  document.getElementById("flower5").style.display="block";
+  document.getElementById("flwrContainer").style.display="flex";
+
   document.getElementById("currLocation").innerHTML= currLocation.toLowerCase();
   document.getElementById("currTemp").innerHTML = currTemp + "°f";
   document.getElementById("currHumidity").innerHTML = currHumidity +"%";
   document.getElementById("currWindSpeed").innerHTML = currWindSpeed + "mph";
   // document.getElementById("currCondition").innerHTML = currCondition;
+  
+  // console.log ({currTemp, currHumidity, currWindSpeed, currCondition});
+
+  const flowerHead1 = document.getElementById("flowerHead1");
+  const flowerHead2 = document.getElementById("flowerHead2");
+  const flowerHead3 = document.getElementById("flowerHead3");
+  const flowerHead4 = document.getElementById("flowerHead4");
+
+  tempScale();
+  humFlowerFrequency();
+}
+
+function tempScale(){
+
+  flowerHead1.style.bottom=(currTemp + "%");
+  flowerHead2.style.bottom=((currTemp-(Math.random()*40)) + "%");
+  flowerHead3.style.bottom=((currTemp-(Math.random()*20)) + "%");
+  flowerHead4.style.bottom=((currTemp-(Math.random()*10)) + "%");
+  // flowerHead1.style.width=((currTemp/2) + "%");
+  // flowerHead1.style.left=(Math.floor(Math.random()*(90-25))+50 + "%");
+  // flowerHead1.style.top=(Math.floor(Math.random()*(50-15))+15 + "%");
+
+  // document.getElementById("flowerHead2").style.width=((currTemp/2) + "%");
+  // document.getElementById("flowerHead3").style.width=((currTemp/2) + "%");
+  // document.getElementById("flowerHead5").style.width=((currTemp/2) + "%");
+
+}
+function humFlowerFrequency (){
+
+  var freq = Math.floor((currHumidity/20));
+  console.log(freq);
+  for(let i = 0; i < freq.length; i++){
+    console.log(i);
+    let showFlower = "document.getElementbyID"+ "flowerHead" + i
+    console.log(showFlower);
+    showFlower.style.display="flex";
+
+  }
+  // console.log(freq);
 }
 
 // FLOWER MEANING SCRIPT
@@ -164,11 +206,11 @@ function dailyMeaning() {
   var t = d.getTime();
 
   var days = Math.floor(t/86400000);
-  console.log(d);
-  console.log(t);
-  console.log(days);
+  // console.log(d);
+  // console.log(t);
+  // console.log(days);
   var i = days % countryList.length;
-  console.log(i);
+  // console.log(i);
 
   document.getElementById("country").innerHTML = countryList[i];
   document.getElementById("meaning").innerHTML = meaningList[i];
@@ -177,14 +219,5 @@ function dailyMeaning() {
 
 window.addEventListener("DOMContentLoaded",() => {
   dailyMeaning();
-  tempFlowerFrequency();
 });
 
-console.log(currTemp);
-console.log(currLocation);
-
-function tempFlowerFrequency (){
-  // var freq = (currTemp.value-50)/5;
-  console.log(currTemp);
-  console.log(freq);
-}

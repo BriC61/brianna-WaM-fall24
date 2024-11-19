@@ -12,11 +12,18 @@
       justify-content: center;
       align-items: center;
     }
+    #container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
   </style>
 </head>
 <body>
-  <div id="svgCanvas"></div>
-
+  <div id="container">
+    <div id="svgCanvas"></div>
+  </div>
+  
   <script>
     // Set up SVG and stem path
     const svgNamespace = "http://www.w3.org/2000/svg";
@@ -63,8 +70,7 @@
       wiggleStem();
     });
 
-    stemPath.addEventListener("mouseleave", () => {
-        stemPath.style.animationDelay = "5s";
+    document.getElementById("container").addEventListener("mouseleave", () => {
       cancelAnimationFrame(animationFrame);
       // Reset to original straight stem
     //   stemPath.setAttribute("d", "M100,400 Q100,300 100,200 Q100,100 100,0");
