@@ -138,10 +138,11 @@ function printData(){
   const flowerHead4 = document.getElementById("flowerHead4");
 
   tempScale();
-  humFlowerFrequency();
+  // humFlowerFrequency();
 }
 
 function tempScale(){
+  // shape of flower as variable? - swap images (more/less petals) based on one factor 
 
   flowerHead1.style.bottom=(currTemp + "%");
   flowerHead2.style.bottom=((currTemp-(Math.random()*40)) + "%");
@@ -156,8 +157,8 @@ function tempScale(){
   // document.getElementById("flowerHead5").style.width=((currTemp/2) + "%");
 
 }
-function humFlowerFrequency (){
 
+function humFlowerFrequency (){
   var freq = Math.floor((currHumidity/20));
   console.log(freq);
   for(let i = 0; i < freq.length; i++){
@@ -206,6 +207,7 @@ function dailyMeaning() {
   var t = d.getTime();
 
   var days = Math.floor(t/86400000);
+  // days = days + 86400000;
   // console.log(d);
   // console.log(t);
   // console.log(days);

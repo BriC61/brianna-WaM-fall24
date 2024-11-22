@@ -125,7 +125,7 @@ button{
     
 }
 [id^="flower"] {
-    display:none;
+    /* display:none; */
     position:absolute;
     max-width:90%
 }
