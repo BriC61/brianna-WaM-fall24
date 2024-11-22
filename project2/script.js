@@ -1,6 +1,3 @@
-//mouse enter triggers stem animation
-//night shift gradient
-
 // RESET PAGE
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -50,6 +47,9 @@ let currWindSpeed;
 let currCondition;
 let currLocation;
 
+let sunrise;
+let sunset;
+
 window.addEventListener("DOMContentLoaded", () => {
 // USER INPUT
   const submitButton = document.getElementById("submit");
@@ -78,7 +78,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // console.log(zipApiUrl);
 // getLocationData();
 
-
+//GET LON/LAT
 function getLocationData() {
     fetch(zipApiUrl)
       .then(response => response.json())
@@ -88,6 +88,7 @@ function getLocationData() {
         currLocation = data.name;
         // console.log (currLocation);
 
+        getSunData(lat,lon); //Fetch sunrise/sunset data using obtained lat/lon
         getWeatherData(lat, lon); // Fetch weather data using the obtained lat/lon
       })
       .catch(error => {
@@ -95,6 +96,45 @@ function getLocationData() {
       });
 }
 
+//GET SUNRISE/SUNSET
+function getSunData(lat,lon){
+  let sunApi = "https://api.sunrisesunset.io/json?lat=" + lat + "&lng=" + lon;
+  console.log (sunApi);
+  fetch(sunApi)
+    .then(response => response.json())
+    .then(data => {
+      sunrise = data.results.sunrise;
+      sunset = data.results.sunset;
+
+      console.log(sunrise);
+      console.log(sunset);
+
+      // nightShift();
+  })
+  .catch(error => {
+    console.error('Error fetching sunrise data:', error);
+  });
+}
+
+//NIGHT SHIFT - SUNSET/SUNRISE API CONNECTION
+//API CONNECTION WORKS, CANNOT FIGURE OUT HOW TO EDIT SINGLE BACKGROUND IMAGE
+// function nightShift(){
+//   let t = new Date();
+//   let formattedTime = t.toLocaleTimeString('en-US',{ hour12: true });
+//   formattedTime = "7:29:09 AM"
+//   console.log(formattedTime);
+  
+  
+//   if (formattedTime >= sunrise){
+//     document.body.style.backgroundImage = "linear-gradient(0deg, rgba(200,200,200,1) 0%, rgba(56,87,196,1) 33%, rgba(56,87,196,1) 50%, rgba(56,87,196,1) 67%, rgba(198,215,240,1) 88%);"
+//     console.log(document.body.style);
+//   }
+//   else if (formattedTime >= sunset){
+//     console.log ("it's past sunset");
+//   }
+// }
+
+//GET WEATHER API
 function getWeatherData(lat, lon){
   // console.log(lat);
   // console.log(lon);
@@ -107,7 +147,7 @@ function getWeatherData(lat, lon){
       currTemp = Math.round(data.main.temp);
       currHumidity = data.main.humidity;
       currWindSpeed = data.wind.speed;
-      currCondition = data.weather[0].description;
+      currCondition = data.weather[0].main;
       // console.log ({currTemp, currHumidity, currWindSpeed, currCondition});
       
       printData();
@@ -117,11 +157,9 @@ function getWeatherData(lat, lon){
     });
 }
 
-
-
+//PRINT WEATHER DATA + FLOWER FUNCTIONS
 function printData(){
   document.getElementById("header").style.display="inline-flex";
-  document.getElementById("flower5").style.display="block";
   document.getElementById("flwrContainer").style.display="flex";
 
   document.getElementById("currLocation").innerHTML= currLocation.toLowerCase();
@@ -137,10 +175,15 @@ function printData(){
   const flowerHead3 = document.getElementById("flowerHead3");
   const flowerHead4 = document.getElementById("flowerHead4");
 
-  tempScale();
-  // humFlowerFrequency();
+  tempScale(); //swap out images (bud -> full bloom) based on temp
+               //wiggling gif when moused over?
+  // humFlowerFrequency(); //more flowers when humid
+  // windAngle(); //use translate(rotation) or shift+ left/right based on wind
+                  //angle stem to follow
+  condIcon();
 }
 
+//SCALE FLOWER BASED ON TEMP
 function tempScale(){
   // shape of flower as variable? - swap images (more/less petals) based on one factor 
 
@@ -155,9 +198,9 @@ function tempScale(){
   // document.getElementById("flowerHead2").style.width=((currTemp/2) + "%");
   // document.getElementById("flowerHead3").style.width=((currTemp/2) + "%");
   // document.getElementById("flowerHead5").style.width=((currTemp/2) + "%");
-
 }
 
+//FREQUENCY OF FLOWERS BASED ON HUMIDITY
 function humFlowerFrequency (){
   var freq = Math.floor((currHumidity/20));
   console.log(freq);
@@ -169,6 +212,39 @@ function humFlowerFrequency (){
 
   }
   // console.log(freq);
+}
+
+
+
+//SWAP OUT HEADER ICONS BASED ON CONDITION
+function condIcon() {
+  console.log ("current condition" + currCondition);
+
+  const conditionIcon = document.getElementById("conditionIcon")
+  if (currCondition == "Clear"){
+    conditionIcon.setAttribute ("src", "./assets/icons/sun.svg")
+  }
+  else if (currCondition == "Clouds" ||
+           currCondition == "Mist" || 
+           currCondition == "Smoke" || 
+           currCondition == "Haze" ||
+           currCondition == "Dust"|| 
+           currCondition == "Fog"){
+    conditionIcon.setAttribute("src", "./assets/icons/cloudy.svg")
+  }
+
+  else if (currCondition == "Thunderstorm"){
+    conditionIcon.setAttribute("src", "./assets/icons/lightning.svg")
+  }
+  else if (currCondition == "Drizzle" || currCondition == "Rain"){
+    conditionIcon.setAttribute("src", "./assets/icons/rain.svg")
+  }
+  else if (currCondition == "Snow"){
+    conditionIcon.setAttribute("src", "./assets/icons/snow.svg")
+  }
+  else{
+    conditionIcon.style.display = "none";
+  }
 }
 
 // FLOWER MEANING SCRIPT

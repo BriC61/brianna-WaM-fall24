@@ -84,10 +84,10 @@ button{
 
 /* SECTION 1 STYLING */
 #section1{
-    background-image: linear-gradient(180deg, rgb(198,215,240) 52%, rgba(14,51,182,1) 100%);
+    /* background-image: linear-gradient(180deg, rgb(198,215,240) 52%, rgba(14,51,182,1) 100%);
     background-attachment:scroll;
     background-size:cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     /* border:solid 1px red; */
 
     width:100vw;
@@ -107,7 +107,7 @@ button{
     z-index:5;
 }
 /* flower styling */
-#flower5{
+/* #flower5{
     display:none;
     top:15%;
     left:10%;
@@ -115,7 +115,7 @@ button{
     z-index:1;
     max-width:35%;
     clip-path:view-box;
-}
+} */
 
 #flwrContainer{
     display:none;
@@ -148,9 +148,9 @@ button{
 
 /* SECTION 2 STYLING */
 .flowerIcon{
-    width:4%;
-    height:4%;
-    margin-top:1%;
+    width:3em;
+    height:3em;
+    margin-top:.5%;
     margin-right:3%;
 }
 h2{
@@ -190,8 +190,7 @@ ol{
 
 .heading{
     display:inline-flex;
-    flex-flow:row wrap;
-    align-items:start;
+    flex-flow:row nowrap;
     width:100%;
     margin-bottom:3%;
 
@@ -228,7 +227,7 @@ ol{
     z-index:5;
     position:relative;
 
-    width:100vw;
+    width:100%;
     height:30vh;
 }
 #footer{
@@ -241,8 +240,20 @@ ol{
     width:100vw;
     height:20vh;
 }
+
+#footer p{
+    font-size:15px;
+    color:rgba(56,87,196,1);
+    padding:0 10vw 0 10vw;
+}
 body{
-    background-color:rgb(14,51,182);
+    background-image: 
+        url("./assets/illustrations/flower5.svg"),
+        linear-gradient(0deg, rgba(17,34,94,1) 0%, rgba(56,87,196,1) 33%, rgba(56,87,196,1) 50%, rgba(56,87,196,1) 67%, rgba(198,215,240,1) 88%);
+    background-repeat: no-repeat, repeat;
+    background-position-x: 10%, left;
+    background-position-y: -50%, top;
+
     margin:0;
     font-family:'Bricolage Grotesque', Courier, sans-serif;
     overflow-x:hidden;
