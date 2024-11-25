@@ -267,8 +267,8 @@ ol{
     background-image: url("./assets/illustrations/flower5Bud.svg");
     background-repeat:no-repeat;
     background-position-x: 10%;
-    background-position-y: -15%;
-    background-attachment: fixed;
+    background-position-y: 20vh;
+    background-attachment: scroll;
     
     margin:0;
     overflow-x:hidden;
