@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color:darkblue;
+                
+                height:100vh;
+            }
+            .drop{
+                background: linear-gradient(top,rgba(13,52,58,1) 0%, rgba(255,255,255,0.6)100%);
+                position: absolute;
+                
+                width:10px;
+                height:89px;
+                bottom: 200px;
+
+                animation: fall .63s linear infinite;
+            }
+            @keyframes fall{
+                to{margin-top: 900px;}
+            }
+
+        </style>
+        <script>
+            var nbDrop= 500;
+
+            function randRange(minNum,maxNum){
+                return(Math.floor(Math.random() * (maxNum-minNum+1))+minNum);
+            }
+            function createRain(){
+                for (let i = 1; i < nbDrop; i++) {
+                    var dropLeft = randRange(0,1600);
+                    var dropTop = randRange (-1000, 1400);
+
+                    let rain = document.getElementsByClassName("rain");
+                    rain[0].appendChild(`<div class="drop" id="drop${i}"></div>`);
+                    console.log(rain)
+
+
+
+                }
+            }
+        </script>
+    </head>
+    <body onload="createRain();">
+        <div class="rain"></div>
+    </body>
+</html>

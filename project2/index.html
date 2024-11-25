@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>BloomCast</title>
     <meta charset="utf-8">
     <meta name="viewport" content=""width=device-width, initial-scale="1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,90 +13,97 @@
 
 </head>
 <body>
-
-    <div id="section1">
-        <!-- <img id="longStem" src="./assets/longStem.svg"/> -->
-        <div id="header">
-            <div id="dateTime">
-                <div class="container">
-                    <span id="currLocation"></span>
-                </div>
-                <div class="container">
-                    <span id="date"></span>
-                </div>
-                <div class="container">
-                    <span id="currTime"></span>
+   <div id="condition">
+        <div id="tallFlower">
+            <div id="section1">
+                <div id ="weatherGIF">
+                <!-- <img id="longStem" src="./assets/longStem.svg"/> -->
+                    <div id="header">
+                        <div id="dateTime">
+                            <div class="container">
+                                <span id="currLocation"></span>
+                            </div>
+                            <div class="container">
+                                <span id="date"></span>
+                            </div>
+                            <div class="container">
+                                <span id="currTime"></span>
+                            </div>
+                        </div>
+                        <div id="weather">
+                            <span class="container">
+                                <img id="conditionIcon" src="./assets/icons/sun.svg"/>
+                                <span id="currTemp"></span>
+                            </span>
+                            <span class="container">
+                                <img src="./assets/icons/wind.svg"/>
+                                <span id="currWindSpeed"></span>
+                            </span>
+                            <span class="container">
+                                <img src="./assets/icons/humidity.svg"/>
+                                <span id="currHumidity"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div id="zipForm">
+                        <h3>zip:</h3>
+                        <input id ="zip" type ="text" inputmode="numeric" placeholder = "enter your zip code"></input>
+                        <button id ="submit">submit</button>
+                    </div>
+                    <div id="flwrContainer">
+                        <img id="flower1" src="./assets/illustrations/flower1.svg"/>
+                        <img id="flower2" src="./assets/illustrations/flower2.svg"/>
+                        <img id="flower3" src="./assets/illustrations/flower3.svg"/>
+                        <img id="flower4" src="./assets/illustrations/flower4.svg"/>
+                    </div>
+                    <img id="grass" src = "./assets/grass.svg"/>
                 </div>
             </div>
-            <div id="weather">
-                <span class="container">
-                    <img id="conditionIcon" src="./assets/icons/sun.svg"/>
-                    <span id="currTemp"></span>
-                </span>
-                <span class="container">
-                    <img src="./assets/icons/wind.svg"/>
-                    <span id="currWindSpeed"></span>
-                </span>
-                <span class="container">
-                    <img src="./assets/icons/humidity.svg"/>
-                    <span id="currHumidity"></span>
-                </span>
-            </div>
-        </div>
-        <div id="zipForm">
-            <h3>zip:</h3>
-            <input id ="zip" type ="text" inputmode="numeric" placeholder = "enter your zip code"></input>
-            <button id ="submit">submit</button>
-        </div>
-        <div id="flwrContainer">
-            <img id="flowerHead1" src="./assets/illustrations/flowerhead1.svg"/>
-            <img id="flowerHead2" src="./assets/illustrations/flowerhead2.svg"/>
-            <img id="flowerHead3" src="./assets/illustrations/flowerhead3.svg"/>
-            <img id="flowerHead4" src="./assets/illustrations/flowerhead4.svg"/>
-        </div>
-        <img id="grass" src = "./assets/grass.svg"/>
+            <div id="bottomGrass"></div>
             
-    </div>
-    <div id="bottomGrass"></div>
-    
-    <div id="section2">
-        <div class="sec2Container">
-            <div class="heading">
-                <img class="flowerIcon" src="./assets/icons/flowerIcon.svg"/>
-                <!-- label that it is flower of the month -->
-                <h2>chrysanthemum</h2>
-            </div>
-            <div class="textSection">
-                <span id="country"></span>
-                <span id="meaning"></span>
-                <span id="addInfo"></span>
-            </div>
-        </div>
-        <div class="sec2Container">
-            <div class="heading">
-                <img class="flowerIcon" src="./assets/icons/flowerIcon.svg"/>
-                <div>
-                    <h2>monthly recipe</h2>
-                    <h4>chrysanthemum tea • 菊花茶</h4>
+            <div id="section2">
+                <div class="sec2Container">
+                    <div class="heading">
+                        <img class="flowerIcon" src="./assets/icons/flowerIcon.svg"/>
+                        <!-- label that it is flower of the month -->
+                        <div>
+                            <h2>chrysanthemum</h2>
+                            <h4>flower of the month</h4>
+                        </div>
+                    </div>
+                    <div class="textSection">
+                        <span id="country"></span>
+                        <span id="meaning"></span>
+                        <span id="addInfo"></span>
+                    </div>
+                </div>
+                <div class="sec2Container">
+                    <div class="heading">
+                        <img class="flowerIcon" src="./assets/icons/flowerIcon.svg"/>
+                        <div>
+                            <h2>monthly recipe</h2>
+                            <h4>chrysanthemum tea • 菊花茶</h4>
+                        </div>
+                    </div>
+                    <div class="textSection">
+                        <ol>
+                            <li>add small chunks of rock sugar into the dried chrysanthemum flowers in the teapot or tea cup</li>
+                            <li>steep the flowers in hot water (194&ndash;212°F) for 2&ndash;3 minutes</li>
+                            <li>enjoy!</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="footer">
+                    <p>
+                        created by brianna cheng<br>
+                        advised by minkyoung kim <br>
+                        for web as medium 1, fall 2024<br><br>
+
+                        powered by openweather api and sunrisesunset.io
+                    </p>
                 </div>
             </div>
-            <div class="textSection">
-                <ol>
-                    <li>add small chunks of rock sugar into the dried chrysanthemum flowers in the teapot or tea cup</li>
-                    <li>steep the flowers in hot water (194&ndash;212°F) for 2&ndash;3 minutes</li>
-                    <li>enjoy!</li>
-                </ol>
-            </div>
         </div>
-        <div id="footer">
-            <p>
-                created by brianna cheng<br>
-                advised by minkyoung kim <br>
-                for web as medium 1, fall 2024<br><br>
-
-                powered by openweather api and sunrisesunset.io
-            </p>
-        </div>
-    </div>
+    </div> 
 </body>
 </html>

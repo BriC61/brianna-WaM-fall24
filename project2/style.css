@@ -52,12 +52,16 @@ button{
     justify-content:space-between;
     align-items:center;
     z-index:5;
+
+    color:black;
 }
 #header span{
     font-size:25px;
     font-weight:500;
     font-variant-numeric: tabular-nums;
     vertical-align: middle;
+
+    
 }
 #dateTime, #weather{
     display:inline-flex;
@@ -67,7 +71,7 @@ button{
     justify-content:end;
 }
 .container{
-    white-space: nowrap;
+    /* white-space: nowrap; */
     display:inline-block;
     flex-direction:row;
     justify-content: center;
@@ -79,6 +83,8 @@ button{
     margin-left:10px;
     margin-right:10px;
     vertical-align:middle;
+
+    
 
 }
 
@@ -102,6 +108,7 @@ button{
 #grass{
     position:absolute;
     bottom:-5vmax;
+    left:0;
     width:100vw;
     object-fit: cover;
     z-index:5;
@@ -125,22 +132,28 @@ button{
     
 }
 [id^="flower"] {
-    /* display:none; */
-    position:absolute;
-    max-width:90%
+    display:none;
+    position:static;
+    width:40vw;
+    transform-origin: 50% 100%;
 }
-#flowerHead1{
-    left: 70%;
-}
-#flowerHead2{
-    left:60%;
-}
-#flowerHead3{
-    left:45%;
-}
-#flowerHead4{
-    left:2%;
+#flower1{
+    display:none;
+    transform: translateX(2vw);
     z-index:2;
+}
+#flower2{
+    transform: translateX(6vw);
+}
+#flower3{
+    transform: translateX(11vw);
+}
+#flower4{
+    transform: translateX(6vw);
+}
+#weatherGIF{
+    background-size:cover;
+
 }
 
 
@@ -236,23 +249,40 @@ ol{
     background-repeat:no-repeat;
     position:relative;
     margin-left:-10vw;
+    padding-top:5vw;
 
     width:100vw;
     height:20vh;
 }
 
 #footer p{
+    padding-top:10%;
+    text-align:right;
     font-size:15px;
     color:rgba(56,87,196,1);
     padding:0 10vw 0 10vw;
 }
+
+#tallFlower{
+    background-image: url("./assets/illustrations/flower5Bud.svg");
+    background-repeat:no-repeat;
+    background-position-x: 10%;
+    background-position-y: -15%;
+    background-attachment: fixed;
+    
+    margin:0;
+    overflow-x:hidden;
+    overflow-y: hidden;
+    overscroll-behavior: none;
+
+}
 body{
-    background-image: 
-        url("./assets/illustrations/flower5.svg"),
-        linear-gradient(0deg, rgba(17,34,94,1) 0%, rgba(56,87,196,1) 33%, rgba(56,87,196,1) 50%, rgba(56,87,196,1) 67%, rgba(198,215,240,1) 88%);
-    background-repeat: no-repeat, repeat;
-    background-position-x: 10%, left;
-    background-position-y: -50%, top;
+    background: 
+        linear-gradient(to bottom,rgb(198,215,240) 12%, rgb(56,87,196) 50%);
+        /* linear-gradient(0deg, rgba(17,34,94,1) 0%, rgba(56,87,196,1) 33%, rgba(56,87,196,1) 67%, rgba(198,215,240,1) 88%); */
+    background-repeat: repeat;
+    background-position-x: left;
+    background-position-y: top;
 
     margin:0;
     font-family:'Bricolage Grotesque', Courier, sans-serif;

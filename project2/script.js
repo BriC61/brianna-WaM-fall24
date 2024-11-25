@@ -56,17 +56,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
   submitButton.addEventListener("click", getNewZip)
   function getNewZip(){
-    
     const zipInput = document.getElementById("zip").value;
     // console.log(zipInput);
 
     if(zipInput){
       document.body.style.overflowY="scroll";
       document.getElementById("zipForm").style.display="none";
-      zipApiUrl = zipApi + zipInput + keyApi;
-      // console.log(zipApiUrl);
+      document.getElementById("tallFlower").style.backgroundImage= "url(\"./assets/illustrations/flower5.svg\")"
 
+      zipApiUrl = zipApi + zipInput + keyApi;
       getLocationData();
+
     } else{
       alert("Please enter a zip code");
     }
@@ -103,36 +103,54 @@ function getSunData(lat,lon){
   fetch(sunApi)
     .then(response => response.json())
     .then(data => {
-      sunrise = data.results.sunrise;
-      sunset = data.results.sunset;
+      apiSunrise = data.results.sunrise;
+      apiSunset = data.results.sunset;
 
-      console.log(sunrise);
-      console.log(sunset);
+      let t = new Date();
+      let time = t.toLocaleTimeString('en-US',{hour12: true});
 
-      // nightShift();
+      function parseTime(apiTime){
+        let [timeWithoutSeconds, period] = apiTime.split(" "); // Split into "hh:mm:ss" and "AM/PM"
+        let [hours, minutes] = timeWithoutSeconds.split(":");  // Split "hh:mm:ss" into "hh" and "mm"
+        if (period === "PM" && hours !== 12) {
+          hours = Number(hours) + 12;
+        } else if (period === "AM" && hours === 12) {
+          hours = 0;
+        }
+        // return {hours, minutes, period}; // Return time in "hh:mm AM/PM" format
+        // console.log("hours: " + hours + " minutes: " + minutes);
+        return formattedTime = (Number(hours) * 60) + Number(minutes);
+      }
+      sunrise = parseTime(apiSunrise);
+      sunset = parseTime(apiSunset);
+      currTime = parseTime(time);
+
+      // console.log(sunrise);
+      // console.log(sunset);
+      // console.log(currTime);
+      nightShift();
   })
   .catch(error => {
     console.error('Error fetching sunrise data:', error);
   });
 }
 
-//NIGHT SHIFT - SUNSET/SUNRISE API CONNECTION
-//API CONNECTION WORKS, CANNOT FIGURE OUT HOW TO EDIT SINGLE BACKGROUND IMAGE
-// function nightShift(){
-//   let t = new Date();
-//   let formattedTime = t.toLocaleTimeString('en-US',{ hour12: true });
-//   formattedTime = "7:29:09 AM"
-//   console.log(formattedTime);
-  
-  
-//   if (formattedTime >= sunrise){
-//     document.body.style.backgroundImage = "linear-gradient(0deg, rgba(200,200,200,1) 0%, rgba(56,87,196,1) 33%, rgba(56,87,196,1) 50%, rgba(56,87,196,1) 67%, rgba(198,215,240,1) 88%);"
-//     console.log(document.body.style);
-//   }
-//   else if (formattedTime >= sunset){
-//     console.log ("it's past sunset");
-//   }
-// }
+// NIGHT SHIFT - SUNSET/SUNRISE API CONNECTION
+// API CONNECTION WORKS, CANNOT FIGURE OUT HOW TO EDIT SINGLE BACKGROUND IMAGE
+function nightShift(){
+  // currTime = (12*60);
+  if (currTime >= sunset || currTime < sunrise){
+    document.body.style.background = 'linear-gradient(to bottom, rgb(27,42,94) 12%, rgb(56,87,196) 33%, rgb(56,87,196) 67%, rgb(17,34,94) 100%)';
+    document.getElementById("header").style.filter = "invert(100%)"
+    console.log(document.getElementById("header").style.color);
+    // console.log ("it's past sunset");
+  }
+  else {
+    document.body.style.background = 'linear-gradient(to bottom, rgb(198,215,240) 12%, rgb(56,87,196) 33%, rgb(56,87,196) 67%, rgb(17,34,94) 100%)';
+
+    // console.log ("it's past sunrise");
+  }
+}
 
 //GET WEATHER API
 function getWeatherData(lat, lon){
@@ -170,57 +188,45 @@ function printData(){
   
   // console.log ({currTemp, currHumidity, currWindSpeed, currCondition});
 
-  const flowerHead1 = document.getElementById("flowerHead1");
-  const flowerHead2 = document.getElementById("flowerHead2");
-  const flowerHead3 = document.getElementById("flowerHead3");
-  const flowerHead4 = document.getElementById("flowerHead4");
+  const flower1 = document.getElementById("flower1");
+  const flower2 = document.getElementById("flower2");
+  const flower3 = document.getElementById("flower3");
+  const flower4 = document.getElementById("flower4");
 
-  tempScale(); //swap out images (bud -> full bloom) based on temp
+  tempScaleWindAngle(); //swap out images (bud -> full bloom) based on temp
                //wiggling gif when moused over?
-  // humFlowerFrequency(); //more flowers when humid
-  // windAngle(); //use translate(rotation) or shift+ left/right based on wind
-                  //angle stem to follow
+  humFrequency(); //more flowers when humid
   condIcon();
 }
 
-//SCALE FLOWER BASED ON TEMP
-function tempScale(){
+//HEIGHT FLOWER BASED ON TEMP + ROTATE FLOWER BASED ON WIND
+function tempScaleWindAngle(){
   // shape of flower as variable? - swap images (more/less petals) based on one factor 
-
-  flowerHead1.style.bottom=(currTemp + "%");
-  flowerHead2.style.bottom=((currTemp-(Math.random()*40)) + "%");
-  flowerHead3.style.bottom=((currTemp-(Math.random()*20)) + "%");
-  flowerHead4.style.bottom=((currTemp-(Math.random()*10)) + "%");
-  // flowerHead1.style.width=((currTemp/2) + "%");
-  // flowerHead1.style.left=(Math.floor(Math.random()*(90-25))+50 + "%");
-  // flowerHead1.style.top=(Math.floor(Math.random()*(50-15))+15 + "%");
-
-  // document.getElementById("flowerHead2").style.width=((currTemp/2) + "%");
-  // document.getElementById("flowerHead3").style.width=((currTemp/2) + "%");
-  // document.getElementById("flowerHead5").style.width=((currTemp/2) + "%");
+  flower1.style.transform = "translate(2vw," + (100-(currTemp+(Math.random()*10)))+ "%) rotate(-" + (currWindSpeed) + "deg)";
+  flower2.style.transform = "translate(6vw," + (100-(currTemp+(Math.random()*20)))+ "%) rotate(-" + (currWindSpeed) + "deg)";
+  flower3.style.transform = "translate(11vw," + (100-(currTemp+(Math.random()*40)))+ "%) rotate(-" + (currWindSpeed) + "deg)";
+  flower4.style.transform = "translate(6vw," + (100-currTemp) + "%) rotate(-" + (currWindSpeed) + "deg)";
 }
 
 //FREQUENCY OF FLOWERS BASED ON HUMIDITY
-function humFlowerFrequency (){
+function humFrequency (){
   var freq = Math.floor((currHumidity/20));
   console.log(freq);
-  for(let i = 0; i < freq.length; i++){
-    console.log(i);
-    let showFlower = "document.getElementbyID"+ "flowerHead" + i
-    console.log(showFlower);
-    showFlower.style.display="flex";
 
+  for(let i = 1; i <= freq; i++){
+    console.log(document.getElementById(`flower${i}`));
+    document.getElementById(`flower${i}`).style.display = "block"
   }
-  // console.log(freq);
 }
-
 
 
 //SWAP OUT HEADER ICONS BASED ON CONDITION
 function condIcon() {
-  console.log ("current condition" + currCondition);
-
+  // console.log ("current condition" + currCondition);
   const conditionIcon = document.getElementById("conditionIcon")
+  const weather = document.getElementById("weatherGIF");
+  // currCondition = "Clouds"
+
   if (currCondition == "Clear"){
     conditionIcon.setAttribute ("src", "./assets/icons/sun.svg")
   }
@@ -230,17 +236,21 @@ function condIcon() {
            currCondition == "Haze" ||
            currCondition == "Dust"|| 
            currCondition == "Fog"){
-    conditionIcon.setAttribute("src", "./assets/icons/cloudy.svg")
+    conditionIcon.setAttribute("src", "./assets/icons/cloudy.svg");
+    weather.style.background = "url('./assets/illustrations/cloudy.gif')";
+    weather.style.backgroundSize = "cover";
+    // weather.style.opacity= "50%";
   }
-
   else if (currCondition == "Thunderstorm"){
     conditionIcon.setAttribute("src", "./assets/icons/lightning.svg")
   }
   else if (currCondition == "Drizzle" || currCondition == "Rain"){
-    conditionIcon.setAttribute("src", "./assets/icons/rain.svg")
+    conditionIcon.setAttribute("src", "./assets/icons/rain.svg");
+    weather.style.background = "url('./assets/illustrations/rain.gif')";
   }
   else if (currCondition == "Snow"){
     conditionIcon.setAttribute("src", "./assets/icons/snow.svg")
+    weather.style.background = "url('./assets/illustrations/snow.gif')";
   }
   else{
     conditionIcon.style.display = "none";
