@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded",() => {
 });
 
 // WEATHER API CONNECTION
-let zipApi = "http://api.openweathermap.org/geo/1.0/zip?zip=";
+let zipApi = "https://api.openweathermap.org/geo/1.0/zip?zip=";
 let keyApi = "&appid=4ba86f24a3306f549b4a928c42926ccb";
 let zipApiUrl;
 let lat;
@@ -74,7 +74,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // TESTING CONNECTION
-// zipApiUrl = "http://api.openweathermap.org/geo/1.0/zip?zip=02903&appid=4ba86f24a3306f549b4a928c42926ccb"
+// zipApiUrl = "https://api.openweathermap.org/geo/1.0/zip?zip=02903&appid=4ba86f24a3306f549b4a928c42926ccb"
 // console.log(zipApiUrl);
 // getLocationData();
 
