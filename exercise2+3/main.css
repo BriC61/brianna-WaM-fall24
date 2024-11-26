@@ -1,8 +1,6 @@
 /* FONT FAMILIES */
     /* INKNUT */
-    
-
-    @font-face {
+    /* @font-face {
         font-family: 'inknut-light';
         src: url('../assets/inknut-antiqua/InknutAntiqua-Light.woff') format('woff');
         font-weight: 300;
@@ -21,7 +19,7 @@
         font-family: 'inknut-bold';
         src: url('../assets/inknut-antiqua/InknutAntiqua-Bold.woff') format('woff');
         font-weight: 700;
-    }
+    } */
     /* RUBIK*/
     /* @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap'); */
 
@@ -67,7 +65,8 @@ h1 {
     text-align: center;
     font-size: 50pt;
     color:blue;
-    font-family:'inknut-bold'; 
+    font-family: "Inknut Antiqua", serif;
+    font-weight:700;
     line-height: 1em;
 }
 h1:hover{
@@ -84,18 +83,22 @@ p {
 }
 
 .details{
+    font-family: "Rubik", sans-serif;
+    font-weight:400;
     padding: 0% 3% 0% 3%;
 }
 
 b {
-    font-family:'inknut-semibold';
+    font-family: "Inknut Antiqua", serif;
+    font-weight:500;
     font-style: normal;
     /* font-size:large;  set it as an actual number */
     line-height: 1.5em;
     color:rgb(90, 90, 255);
 }
 .handmade{
-    font-family: 'inknut-bold';
+    font-family: "Inknut Antiqua", serif;
+    font-weight:700;
     color:blue;
 }
 .handmade:hover{
@@ -103,9 +106,9 @@ b {
 }
 
 i {
-    font-family: "inknut-semibold", serif;
+    font-family: "Inknut Antiqua", serif;
+    font-weight:500;
     font-optical-sizing: auto;
-    font-weight: 700;
     border: 10px;
     color:rgb(136, 136, 255);
 }
@@ -118,8 +121,8 @@ a:visited{
 }
 
 blockquote{
-    font-family: "inknut-regular", serif;
+    font-family: "Inknut Antiqua", serif;
+    font-weight: 300;
     font-optical-sizing: auto;
-    font-weight: 700;
     line-height: 1.4em;    
 }

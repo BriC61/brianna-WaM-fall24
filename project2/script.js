@@ -138,7 +138,7 @@ function getSunData(lat,lon){
 // NIGHT SHIFT - SUNSET/SUNRISE API CONNECTION
 // API CONNECTION WORKS, CANNOT FIGURE OUT HOW TO EDIT SINGLE BACKGROUND IMAGE
 function nightShift(){
-  // currTime = (12*60);
+  // currTime = (18*60);
   if (currTime >= sunset || currTime < sunrise){
     document.body.style.background = 'linear-gradient(to bottom, rgb(27,42,94) 12%, rgb(56,87,196) 33%, rgb(56,87,196) 67%, rgb(17,34,94) 100%)';
     document.getElementById("header").style.filter = "invert(100%)"
@@ -225,7 +225,7 @@ function condIcon() {
   // console.log ("current condition" + currCondition);
   const conditionIcon = document.getElementById("conditionIcon")
   const weather = document.getElementById("weatherGIF");
-  // currCondition = "Clouds"
+  // currCondition = "Rain";
 
   if (currCondition == "Clear"){
     conditionIcon.setAttribute ("src", "./assets/icons/sun.svg")
