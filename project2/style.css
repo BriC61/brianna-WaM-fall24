@@ -225,6 +225,7 @@ ol{
 
 /* PAGE STYLING */
 /* RENEABLE OVERFLOWY IN BODY */
+
 #longStem{
     z-index:1;
     position:absolute;
@@ -263,7 +264,16 @@ ol{
     padding:0 10vw 0 10vw;
 }
 
-#tallFlower{
+a{
+    color:rgba(56,87,196,1);
+    text-decoration:none;
+}
+    a:visited {
+        color:rgba(79, 113, 232,1);
+        text-decoration:none;
+    }
+
+.tallFlower{
     background-image: url("./assets/illustrations/flower5Bud.svg");
     background-repeat:no-repeat;
     background-position-x: 10%;
